@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) - replace with your ID -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0a0a0a">
+    <title>Lacunae - Exploring the Spaces Between</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Lacunae - Exploring the spaces between. A new iOS experience from Velvet Disruption. Coming 2027.">
+    <meta name="keywords" content="Lacunae, iOS app, Velvet Disruption, Magda Hamilton, mobile app, creative technology">
+    <meta name="author" content="Magda Hamilton">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://lacunae.app/">
+    <meta property="og:title" content="Lacunae - Exploring the Spaces Between">
+    <meta property="og:description" content="A new iOS experience from Velvet Disruption. Coming 2027.">
+    <meta property="og:image" content="https://lacunae.app/og-image.png">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://lacunae.app/">
+    <meta name="twitter:title" content="Lacunae - Exploring the Spaces Between">
+    <meta name="twitter:description" content="A new iOS experience from Velvet Disruption. Coming 2027.">
+    <meta name="twitter:image" content="https://lacunae.app/og-image.png">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    
+    <link rel="canonical" href="https://lacunae.app">
+    
+    <!-- Schema.org markup -->
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://lacunae.app/#creativework",
+      "name": "Lacunae",
+      "url": "https://lacunae.app",
+      "description": "Exploring the spaces between. A new iOS experience from Velvet Disruption.",
+      "applicationCategory": "Lifestyle",
+      "operatingSystem": "iOS",
+      "creator": {
+        "@id": "https://magdahamilton.dev/#person"
+      },
+      "publisher": {
+        "@id": "https://velvetdisruption.com/#organization"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://lacunae.app/#website",
+      "name": "Lacunae",
+      "url": "https://lacunae.app",
+      "about": {
+        "@id": "https://lacunae.app/#creativework"
+      },
+      "publisher": {
+        "@id": "https://velvetdisruption.com/#organization"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://magdahamilton.dev/#person",
+      "name": "Magda Hamilton",
+      "url": "https://magdahamilton.dev",
+      "jobTitle": ["Graphics & Design Engineer", "Creative Technologist"],
+      "sameAs": [
+        "https://www.crunchbase.com/person/magda-hamilton",
+        "https://github.com/magdahamilton",
+        "https://www.linkedin.com/in/magdahamilton"
+      ]
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://velvetdisruption.com/#organization",
+      "name": "Velvet Disruption",
+      "url": "https://velvetdisruption.com",
+      "sameAs": [
+        "https://www.crunchbase.com/organization/velvet-disruption-0966",
+        "https://github.com/velvet-disruption",
+        "https://www.linkedin.com/company/velvetdisruption"
+      ]
+    }
+  ]
+}
+    </script>
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --bg: #0a0a0a;
+            --text: #e8e8e8;
+            --text-dim: #4a4a4a;
+            --accent: #2a2a2a;
+            --gap: #0a0a0a;
+        }
+        
+        body {
+            min-height: 100vh;
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        /* Subtle grain texture */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+            opacity: 0.03;
+            pointer-events: none;
+            z-index: 1000;
+        }
+        
+        .container {
+            text-align: center;
+            z-index: 1;
+            padding: 2rem;
+        }
+        
+        /* Main title with lacunae effect */
+        .title {
+            font-size: clamp(3rem, 15vw, 10rem);
+            font-weight: 300;
+            letter-spacing: 0.4em;
+            text-transform: uppercase;
+            margin-bottom: 0;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .title .letter {
+            display: inline-block;
+            position: relative;
+            transition: opacity 1.5s ease-in-out;
+        }
+        
+        /* The "gaps" - letters that fade */
+        .title .letter.lacuna {
+            animation: lacuna-pulse 8s ease-in-out infinite;
+        }
+        
+        .title .letter:nth-child(2) { animation-delay: 0s; }
+        .title .letter:nth-child(4) { animation-delay: 2.5s; }
+        .title .letter:nth-child(6) { animation-delay: 5s; }
+        
+        @keyframes lacuna-pulse {
+            0%, 100% { 
+                opacity: 1; 
+                letter-spacing: 0.4em;
+            }
+            40%, 60% { 
+                opacity: 0.08;
+                letter-spacing: 0.8em;
+            }
+        }
+        
+        /* Negative space line */
+        .space-line {
+            width: 0;
+            height: 1px;
+            background: var(--text);
+            margin: 3rem auto;
+            animation: expand-line 2s ease-out 0.5s forwards;
+        }
+        
+        @keyframes expand-line {
+            to {
+                width: min(300px, 60vw);
+            }
+        }
+        
+        .tagline {
+            font-size: clamp(0.9rem, 2.5vw, 1.2rem);
+            font-weight: 300;
+            letter-spacing: 0.3em;
+            text-transform: lowercase;
+            color: var(--text-dim);
+            opacity: 0;
+            animation: fade-in 2s ease-out 1s forwards;
+            font-style: italic;
+        }
+        
+        .coming {
+            font-size: clamp(0.7rem, 2vw, 0.85rem);
+            font-weight: 400;
+            letter-spacing: 0.5em;
+            text-transform: uppercase;
+            color: var(--text-dim);
+            margin-top: 4rem;
+            opacity: 0;
+            animation: fade-in 2s ease-out 1.5s forwards;
+        }
+        
+        @keyframes fade-in {
+            to { opacity: 1; }
+        }
+        
+        /* Email signup */
+        .signup {
+            margin-top: 3rem;
+            opacity: 0;
+            animation: fade-in 2s ease-out 2s forwards;
+        }
+        
+        .signup-form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .signup input[type="email"] {
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid var(--text-dim);
+            padding: 0.75rem 1rem;
+            font-family: inherit;
+            font-size: 0.9rem;
+            color: var(--text);
+            width: min(280px, 70vw);
+            text-align: center;
+            letter-spacing: 0.1em;
+            transition: border-color 0.3s ease;
+        }
+        
+        .signup input[type="email"]:focus {
+            outline: none;
+            border-color: var(--text);
+        }
+        
+        .signup input[type="email"]::placeholder {
+            color: var(--text-dim);
+            font-style: italic;
+        }
+        
+        .signup button {
+            background: transparent;
+            border: 1px solid var(--text-dim);
+            color: var(--text-dim);
+            padding: 0.6rem 2rem;
+            font-family: inherit;
+            font-size: 0.75rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .signup button:hover {
+            border-color: var(--text);
+            color: var(--text);
+        }
+        
+        .signup-message {
+            font-size: 0.8rem;
+            color: var(--text-dim);
+            font-style: italic;
+            margin-top: 0.5rem;
+            min-height: 1.2em;
+        }
+        
+        /* Floating particles - negative space dots */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: var(--text);
+            border-radius: 50%;
+            opacity: 0;
+            animation: particle-drift 20s linear infinite;
+        }
+        
+        @keyframes particle-drift {
+            0% {
+                opacity: 0;
+                transform: translateY(100vh) scale(0);
+            }
+            10% {
+                opacity: 0.15;
+            }
+            90% {
+                opacity: 0.15;
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(-20vh) scale(1);
+            }
+        }
+        
+        /* Footer */
+        footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            padding: 1.5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10;
+            opacity: 0;
+            animation: fade-in 2s ease-out 2.5s forwards;
+        }
+        
+        .vd-logo-link {
+            opacity: 0.3;
+            transition: opacity 0.3s ease;
+        }
+        
+        .vd-logo-link:hover {
+            opacity: 0.7;
+        }
+        
+        .vd-logo {
+            width: 32px;
+            height: auto;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 600px) {
+            .title {
+                letter-spacing: 0.2em;
+            }
+            
+            @keyframes lacuna-pulse {
+                0%, 100% { 
+                    opacity: 1; 
+                    letter-spacing: 0.2em;
+                }
+                40%, 60% { 
+                    opacity: 0.08;
+                    letter-spacing: 0.5em;
+                }
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating particles -->
+    <div class="particles" id="particles"></div>
+    
+    <main class="container">
+        <h1 class="title" aria-label="Lacunae">
+            <span class="letter">L</span><span class="letter lacuna">A</span><span class="letter">C</span><span class="letter lacuna">U</span><span class="letter">N</span><span class="letter lacuna">A</span><span class="letter">E</span>
+        </h1>
+        
+        <div class="space-line"></div>
+        
+        <p class="tagline">exploring the spaces between</p>
+        
+        <p class="coming">Coming 2027</p>
+        
+        <div class="signup">
+            <form class="signup-form" id="signupForm">
+                <input type="email" placeholder="your@email.com" required id="emailInput">
+                <button type="submit">Notify Me</button>
+            </form>
+            <p class="signup-message" id="signupMessage"></p>
+        </div>
+    </main>
+    
+    <footer>
+        <a href="https://velvetdisruption.com" class="vd-logo-link" title="Velvet Disruption">
+            <svg class="vd-logo" viewBox="0 0 50 40" xmlns="http://www.w3.org/2000/svg">
+                <path d="M 5 0 L 20 30 L 35 0" stroke="#e8e8e8" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M 35 10 Q 48 10 48 25 Q 48 40 35 40" stroke="#e8e8e8" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+            </svg>
+        </a>
+    </footer>
+    
+    <script>
+        // Create floating particles
+        const particlesContainer = document.getElementById('particles');
+        const particleCount = 15;
+        
+        for (let i = 0; i < particleCount; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 20 + 's';
+            particle.style.animationDuration = (15 + Math.random() * 10) + 's';
+            particlesContainer.appendChild(particle);
+        }
+        
+        // Email signup handling
+        const form = document.getElementById('signupForm');
+        const message = document.getElementById('signupMessage');
+        
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = document.getElementById('emailInput').value;
+            
+            // Here you would normally send to your backend
+            // For now, just show a confirmation
+            message.textContent = 'Thank you. We\'ll be in touch.';
+            form.style.display = 'none';
+            
+            // Optional: Send to your email service
+            // fetch('/api/subscribe', { method: 'POST', body: JSON.stringify({ email }) });
+        });
+    </script>
+</body>
+</html>

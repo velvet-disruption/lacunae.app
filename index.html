@@ -180,7 +180,7 @@
                 letter-spacing: 0.4em;
             }
             40%, 60% { 
-                opacity: 0.08;
+                opacity: 0.3;
                 letter-spacing: 0.8em;
             }
         }
@@ -233,61 +233,23 @@
             animation: fade-in 2s ease-out 2s forwards;
         }
         
-        .signup-form {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1rem;
-        }
-        
-        .signup input[type="email"] {
-            background: transparent;
-            border: none;
-            border-bottom: 1px solid var(--text-dim);
-            padding: 0.75rem 1rem;
-            font-family: inherit;
-            font-size: 0.9rem;
-            color: var(--text);
-            width: min(280px, 70vw);
-            text-align: center;
-            letter-spacing: 0.1em;
-            transition: border-color 0.3s ease;
-        }
-        
-        .signup input[type="email"]:focus {
-            outline: none;
-            border-color: var(--text);
-        }
-        
-        .signup input[type="email"]::placeholder {
-            color: var(--text-dim);
-            font-style: italic;
-        }
-        
-        .signup button {
+        .signup-link {
+            display: inline-block;
             background: transparent;
             border: 1px solid var(--text-dim);
             color: var(--text-dim);
-            padding: 0.6rem 2rem;
+            padding: 0.75rem 2.5rem;
             font-family: inherit;
             font-size: 0.75rem;
             letter-spacing: 0.3em;
             text-transform: uppercase;
-            cursor: pointer;
+            text-decoration: none;
             transition: all 0.3s ease;
         }
         
-        .signup button:hover {
+        .signup-link:hover {
             border-color: var(--text);
             color: var(--text);
-        }
-        
-        .signup-message {
-            font-size: 0.8rem;
-            color: var(--text-dim);
-            font-style: italic;
-            margin-top: 0.5rem;
-            min-height: 1.2em;
         }
         
         /* Floating particles - negative space dots */
@@ -368,7 +330,7 @@
                     letter-spacing: 0.2em;
                 }
                 40%, 60% { 
-                    opacity: 0.08;
+                    opacity: 0.3;
                     letter-spacing: 0.5em;
                 }
             }
@@ -391,11 +353,9 @@
         <p class="coming">Coming 2027</p>
         
         <div class="signup">
-            <form class="signup-form" id="signupForm">
-                <input type="email" placeholder="your@email.com" required id="emailInput">
-                <button type="submit">Notify Me</button>
-            </form>
-            <p class="signup-message" id="signupMessage"></p>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSffnXUIJP6BIYzYHUQoYB_VRPNGZU4WghNI3ytbW00UDADfGw/viewform" target="_blank" rel="noopener noreferrer" class="signup-link">
+                Notify Me
+            </a>
         </div>
     </main>
     
@@ -421,23 +381,6 @@
             particle.style.animationDuration = (15 + Math.random() * 10) + 's';
             particlesContainer.appendChild(particle);
         }
-        
-        // Email signup handling
-        const form = document.getElementById('signupForm');
-        const message = document.getElementById('signupMessage');
-        
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
-            const email = document.getElementById('emailInput').value;
-            
-            // Here you would normally send to your backend
-            // For now, just show a confirmation
-            message.textContent = 'Thank you. We\'ll be in touch.';
-            form.style.display = 'none';
-            
-            // Optional: Send to your email service
-            // fetch('/api/subscribe', { method: 'POST', body: JSON.stringify({ email }) });
-        });
     </script>
 </body>
 </html>

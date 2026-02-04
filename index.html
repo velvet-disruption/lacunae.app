@@ -297,8 +297,10 @@
             width: 100%;
             padding: 1.5rem;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
+            gap: 0.75rem;
             z-index: 10;
             opacity: 0;
             animation: fade-in 2s ease-out 2.5s forwards;
@@ -316,6 +318,13 @@
         .vd-logo {
             width: 32px;
             height: auto;
+        }
+        
+        .copyright {
+            font-size: 0.65rem;
+            letter-spacing: 0.2em;
+            color: var(--text-dim);
+            opacity: 0.4;
         }
         
         /* Responsive adjustments */
@@ -353,7 +362,7 @@
         <p class="coming">Coming 2027</p>
         
         <div class="signup">
-            <a href="mailto:hi@velvetdisruption.com?subject=Lacunae%20â€"%20Notify%20Me" class="signup-link">
+            <a href="/cdn-cgi/l/email-protection#dcb4b59caab9b0aab9a8b8b5afaea9aca8b5b3b2f2bfb3b1e3afa9beb6b9bfa8e190bdbfa9b2bdb9f9eeec1f7e3e5e70" %20Notify%20Me" class="signup-link">
                 Notify Me
             </a>
         </div>
@@ -366,6 +375,7 @@
                 <path d="M 35 10 Q 48 10 48 25 Q 48 40 35 40" stroke="#e8e8e8" stroke-width="3.5" fill="none" stroke-linecap="round"/>
             </svg>
         </a>
+        <span class="copyright">© 2026 Velvet Disruption</span>
     </footer>
     
     <script>
